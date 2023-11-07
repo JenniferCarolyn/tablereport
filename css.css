@@ -11,7 +11,7 @@
     -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
     pointer-events: none;
-    font-family: public sans;
+    font-family: titillium;
     font-size: 16px;
     z-index: 2;
 
@@ -28,7 +28,7 @@
 
 #tooltip p {
     margin: 0;
-    font-family: public sans;
+    font-family: titillium;
     font-size: 20px;
     line-height: 15px;
 
@@ -38,8 +38,8 @@
 }
 
 .reportTable {
-  font-family: titillium web;
-  font-size: 12px;
+  font-family: public sans;
+  font-size: 16px;
   border: 1px solid #CCCCCC; 
   border-collapse: collapse;
   border-spacing: 3px;
