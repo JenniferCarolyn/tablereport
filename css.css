@@ -29,7 +29,7 @@
 #tooltip p {
     margin: 0;
     font-family: titillium;
-    font-size: 40px;
+    font-size: 20px;
     line-height: 15px;
 
     /* Add customization here  */
@@ -39,7 +39,7 @@
 
 .reportTable {
   font-family: public sans;
-  font-size: 40px;
+  font-size: 20px;
   border: 1px solid #CCCCCC; 
   border-collapse: collapse;
   border-spacing: 3px;
