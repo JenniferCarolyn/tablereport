@@ -77,15 +77,22 @@
   /* Add customization here  */
 
 }
-.reportTable td:first-child {
-  /* Estilo para el primer pivot */
+.reportTable td.main-category {
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #f0f0f0; /* Fondo para destacar el primer pivot */
 }
 
-/* Aplicar a celdas consecutivas que se repiten para simular merge */
-.reportTable td.repeated {
-  display: none; /* O visibility: hidden; */
+/* Ocultar celdas duplicadas en el primer pivot */
+.reportTable td.hidden {
+  display: none;
 }
 
+/* Separador visual entre cada subcategoría */
+.reportTable td.sub-category {
+  text-align: center;
+}
 .left {
   text-align: left;
 
