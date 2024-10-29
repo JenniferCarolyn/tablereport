@@ -49,7 +49,7 @@
 }
 
 .reportTable th {
-  background-color: #003057;
+  background-color: #ffc20f;
   color: #ffffff;
   border: 1px solid #CCCCCC; 
   border-bottom: 1px solid #CCCCCC !important;
@@ -65,7 +65,7 @@
   color: #000000;
   vertical-align: super;
   padding: 5px;
-  /*background: #003057;*/
+  /*background: #ffc20f;*/
   border: 1px solid #CCCCCC; 
   border-collapse: collapse;
   white-space: pre-wrap;
