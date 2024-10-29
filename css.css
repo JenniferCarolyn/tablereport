@@ -122,3 +122,21 @@
   /* Add customization here  */
 
 }
+.reportTable th:nth-child(3), .reportTable td:nth-child(3) {
+    display: none;
+}
+.reportTable th:nth-child(7), .reportTable td:nth-child(7) {
+    display: none;
+}
+.reportTable th:nth-child(11), .reportTable td:nth-child(11) {
+    display: none;
+}
+.reportTable th:nth-child(15), .reportTable td:nth-child(15) {
+    display: none;
+}
+.reportTable th:nth-child(3), .reportTable td:nth-child(3) {
+    display: none;
+}
+.reportTable th:nth-child(19), .reportTable td:nth-child(19) {
+    display: none;
+}
