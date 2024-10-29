@@ -114,9 +114,10 @@
   /* Add customization here  */
 
 }
-.column-to-hide {
+.reportTable th:nth-child(2), .reportTable td:nth-child(2) {
     display: none;
 }
+
 
 .total.transposed {
   border-top: 0px !important;
