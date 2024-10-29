@@ -56,6 +56,7 @@
   /* font-size: 10px;  */
   /* height: 25px; */
   padding: 5px;
+  text-align: center;
 
   /* Add customization here  */
 
@@ -68,7 +69,7 @@
   /*background: #ffc20f;*/
   border: 1px solid #CCCCCC; 
   border-collapse: collapse;
-  white-space: normal;
+  white-space: pre-line;
   word-wrap: break-word;
 
   /* Add customization here  */
