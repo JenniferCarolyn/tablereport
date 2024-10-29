@@ -64,11 +64,12 @@
 
 .reportTable td {
   color: #000000;
-  vertical-align: super;
+  vertical-align: top;
   padding: 5px;
   /*background: #ffc20f;*/
   border: 1px solid #CCCCCC; 
   border-collapse: collapse;
+  font-size: 24px;
   white-space: pre-line;
   word-wrap: break-word;
 
