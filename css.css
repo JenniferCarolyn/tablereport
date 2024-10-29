@@ -114,7 +114,7 @@
   /* Add customization here  */
 
 }
-.reportTable th:nth-child(2), .reportTable td:nth-child(2) {
+.reportTable th:nth-child(3), .reportTable td:nth-child(3) {
     display: none;
 }
 
