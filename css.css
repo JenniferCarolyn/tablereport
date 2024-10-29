@@ -68,6 +68,7 @@
   /*background: #003057;*/
   border: 1px solid #CCCCCC; 
   border-collapse: collapse;
+  white-space: pre-wrap;
 
   /* Add customization here  */
 
