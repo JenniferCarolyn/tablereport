@@ -69,6 +69,7 @@
   border: 1px solid #CCCCCC; 
   border-collapse: collapse;
   white-space: pre-wrap;
+  word-wrap: break-word;
 
   /* Add customization here  */
 
