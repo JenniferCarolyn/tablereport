@@ -114,6 +114,9 @@
   /* Add customization here  */
 
 }
+.column-to-hide {
+    display: none;
+}
 
 .total.transposed {
   border-top: 0px !important;
