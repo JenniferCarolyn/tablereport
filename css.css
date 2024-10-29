@@ -114,10 +114,6 @@
   /* Add customization here  */
 
 }
-.reportTable th:nth-child(3), .reportTable td:nth-child(3) {
-    display: none;
-}
-
 
 .total.transposed {
   border-top: 0px !important;
