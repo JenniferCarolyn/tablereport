@@ -50,7 +50,7 @@
 
 .reportTable th {
   background-color: #ffc20f;
-  color: #ffffff;
+  color: #000000;
   border: 1px solid #CCCCCC; 
   border-bottom: 1px solid #CCCCCC !important;
   /* font-size: 10px;  */
@@ -68,7 +68,7 @@
   /*background: #ffc20f;*/
   border: 1px solid #CCCCCC; 
   border-collapse: collapse;
-  white-space: pre-wrap;
+  white-space: normal;
   word-wrap: break-word;
 
   /* Add customization here  */
