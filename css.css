@@ -77,6 +77,14 @@
   /* Add customization here  */
 
 }
+.reportTable td:first-child {
+  /* Estilo para el primer pivot */
+}
+
+/* Aplicar a celdas consecutivas que se repiten para simular merge */
+.reportTable td.repeated {
+  display: none; /* O visibility: hidden; */
+}
 
 .left {
   text-align: left;
