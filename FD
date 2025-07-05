@@ -35,22 +35,22 @@
   font-size:22px;
   width:100%;
   border-collapse:collapse;
-  table-layout:auto;        /* se adapta al Nº de columnas */
+  table-layout:auto;
 }
 
-/* Encabezados */
+/* Encabezados – gradiente corporativo, bordes negros */
 .reportTable th{
   background:linear-gradient(90deg,var(--fd-purple) 0%,var(--fd-blue) 100%);
   color:#fff;
-  border:1px solid var(--fd-blue);
+  border:1px solid #000;          /* ⬅ líneas internas negras */
   padding:8px;
   text-align:center;
   font-size:18px;
 }
 
-/* Celdas */
+/* Celdas – bordes negros */
 .reportTable td{
-  border:1px solid var(--fd-blue);
+  border:1px solid #000;          /* ⬅ líneas internas negras */
   padding:8px 10px;
   font-size:18px;
   color:var(--fd-navy);
@@ -58,23 +58,18 @@
   word-wrap:break-word;
 }
 
-/* Filas alternas para legibilidad */
+/* Filas alternas */
 .reportTable tr:nth-child(even) td{background:var(--fd-light);}
 
 /* ---------- Ajustes de ancho ---------- */
-/* Primera columna: evita que se expanda demasiado             */
 .reportTable th:first-child,
 .reportTable td:first-child{
   max-width:200px;
   width:200px;
   white-space:normal;
 }
-/* Resto de columnas: límite general                           */
-.reportTable th, .reportTable td{
-  max-width:280px;
-}
+.reportTable th, .reportTable td{max-width:280px;}
 
-/* Responsivo (pantallas ≤ 768 px) */
 @media(max-width:768px){
   .reportTable th, .reportTable td{max-width:140px;font-size:16px;}
 }
@@ -108,7 +103,7 @@
   color:#fff;
 }
 .total{
-  border-top:3px solid var(--fd-blue)!important;
+  border-top:3px solid #000!important; /* borde superior negro */
   font-weight:bold!important;
 }
 .total.transposed{
