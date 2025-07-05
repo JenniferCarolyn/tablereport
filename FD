@@ -1,11 +1,11 @@
 /* =====================================================
-   Variables de marca FluentData  ─ ajusta si cambian
+   Paleta FluentData  (ajusta si Brand lo actualiza)
    ===================================================== */
 :root{
-  --fd-blue:   #006CFF;  /* Azul principal */
-  --fd-purple: #9E38FF;  /* Morado gradiente */
-  --fd-navy:   #1B1F3C;  /* Texto/fondo oscuro */
-  --fd-light:  #F4F6FF;  /* Fondo alterno de filas */
+  --fd-blue:   #006CFF;  /* Azul principal (botones)  */
+  --fd-purple: #9E38FF;  /* Morado del gradiente logo */
+  --fd-navy:   #1B1F3C;  /* Texto/fondo oscuro        */
+  --fd-light:  #F4F6FF;  /* Fila alterna / fondo leve  */
 }
 
 /* =====================================================
@@ -28,13 +28,14 @@
 #tooltip p{margin:0;line-height:1.2em;}
 
 /* =====================================================
-   Tabla principal
+   Tabla genérica: se adapta a 2 o n columnas
    ===================================================== */
 .reportTable{
   font-family:'Public Sans',sans-serif;
-  font-size:24px;
-  border-collapse:collapse;
+  font-size:22px;
   width:100%;
+  border-collapse:collapse;
+  table-layout:auto;           /* ⇢ deja que el navegador reparta anchos */
 }
 
 /* Encabezados */
@@ -50,24 +51,57 @@
 /* Celdas */
 .reportTable td{
   border:1px solid var(--fd-blue);
-  padding:8px;
-  font-size:20px;
+  padding:8px 10px;
+  font-size:18px;
   color:var(--fd-navy);
   white-space:pre-line;
-  word-wrap:break-word;
+  word-wrap:break-word;  /* corta URLs largas */
 }
 
-/* Filas alternas */
-.reportTable tr:nth-child(even) td{
-  background:var(--fd-light);
+/* Filas alternas para legibilidad */
+.reportTable tr:nth-child(even) td{background:var(--fd-light);}
+
+/* ---------- Ajuste de anchos máximos ---------- */
+/* Primera columna: nunca mayor a 200 px          */
+.reportTable th:first-child,
+.reportTable td:first-child{
+  max-width:200px;
+  width:200px;
+  white-space:normal;
+}
+/* Resto de columnas: límite general de 280 px    */
+.reportTable th, .reportTable td{
+  max-width:280px;
 }
 
-/* Alineaciones rápidas */
-.left{ text-align:left; }
-.right{ text-align:right!important; }
-.indent{ padding-left:15px; }
+/* Responsivo: pantallas ≤ 768 px */
+@media(max-width:768px){
+  .reportTable th, .reportTable td{max-width:140px;font-size:16px;}
+}
 
-/* Sub-totales y totales */
+/* ---------- Jerarquía colapsable (details) ---------- */
+.reportTable details{margin:0;}
+.reportTable details summary{
+  cursor:pointer;
+  list-style:none;
+  position:relative;
+  padding-left:18px;  /* espacio para el icono */
+}
+.reportTable details summary::before{
+  content:"▶";
+  position:absolute;
+  left:0;
+  top:2px;
+  color:var(--fd-blue);
+  font-size:14px;
+}
+.reportTable details[open] summary::before{content:"▼";}
+.reportTable details[open] > summary{
+  font-weight:bold;
+  color:var(--fd-purple);
+}
+
+/* ---------- Sub-totales y Totales ---------- */
 .subtotal{
   font-style:italic;
   font-weight:bold;
@@ -84,33 +118,9 @@
   color:#fff;
 }
 
-/* ----------------------------------------------------
-   Ajustes de las dos primeras columnas
-   ---------------------------------------------------- */
-
-/* 1️⃣  Limita la anchura de la primera columna */
-.reportTable th:first-child,
-.reportTable td:first-child{
-  max-width:180px;      /* modifica si necesitas otro ancho */
-  width:180px;
-  white-space:normal;   /* permite saltos de línea */
-}
-
-/* 2️⃣  Añade espacio interno a la segunda columna */
-.reportTable th:nth-child(2),
-.reportTable td:nth-child(2){
-  padding-left:12px;
-  padding-right:12px;
-}
-
-/* ----------------------------------------------------
-   Columnas ocultas (mantén o edita según necesites)
-   ---------------------------------------------------- */
+/* ---------- Columnas que quieras ocultar ---------- */
+/* Ejemplo; agrega o quita índices según tu caso */
 .reportTable th:nth-child(3),  .reportTable td:nth-child(3),
-.reportTable th:nth-child(7),  .reportTable td:nth-child(7),
-.reportTable th:nth-child(11), .reportTable td:nth-child(11),
-.reportTable th:nth-child(15), .reportTable td:nth-child(15),
-.reportTable th:nth-child(19), .reportTable td:nth-child(19){
+.reportTable th:nth-child(7),  .reportTable td:nth-child(7){
   display:none;
 }
-
