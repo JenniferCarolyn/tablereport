@@ -1,97 +1,91 @@
-/* =======================================================
-   Paleta corporativa (ajusta si es necesario)
-   ======================================================= */
+/* =====================================================
+   Variables de marca (ajústalas si cambian)
+   ===================================================== */
 :root{
-  --brand-blue:   #005FA3;  /* Azul principal */
-  --brand-cyan:   #00A3E0;  /* Celeste de apoyo */
-  --brand-yellow: #FFC20E;  /* Amarillo protagonista */
-  --brand-gray:   #4E4E50;  /* Gris neutro */
-  --brand-light:  #F5FAFF;  /* Azul muy claro para fondos */
+  --fd-blue:   #006CFF;  /* Azul principal */
+  --fd-purple: #9E38FF;  /* Morado gradiente */
+  --fd-navy:   #1B1F3C;  /* Texto/fondo oscuro */
+  --fd-light:  #F4F6FF;  /* Fondo alterno de filas */
 }
 
-/* =======================================================
+/* =====================================================
    Tooltip
-   ======================================================= */
+   ===================================================== */
 #tooltip{
   position:absolute;
-  width:auto;
-  height:auto;
   padding:6px 10px;
-  background-color:#fff;               /* Mantén fondo blanco para contraste */
-  border:1px solid var(--brand-blue);  /* Borde azul corporativo */
+  background:#fff;
+  border:1px solid var(--fd-purple);
   border-radius:4px;
   box-shadow:4px 4px 10px rgba(0,0,0,.25);
   pointer-events:none;
   font-family:'Public Sans',sans-serif;
   font-size:18px;
-  color:var(--brand-blue);             /* Texto azul */
+  color:var(--fd-navy);
   z-index:2;
 }
 #tooltip.hidden{display:none;}
-#tooltip p{
-  margin:0;
-  line-height:1.2em;
-}
+#tooltip p{margin:0;line-height:1.2em;}
 
-/* =======================================================
+/* =====================================================
    Tabla
-   ======================================================= */
+   ===================================================== */
 .reportTable{
   font-family:'Public Sans',sans-serif;
   font-size:24px;
-  border:1px solid var(--brand-blue);
   border-collapse:collapse;
-  background-color:#fff;
+  width:100%;
 }
 
 /* Encabezados */
 .reportTable th{
-  background-color:var(--brand-yellow);
-  color:var(--brand-blue);
-  border:1px solid var(--brand-blue);
-  padding:6px 8px;
+  /* Gradiente corporativo */
+  background:linear-gradient(90deg,var(--fd-purple) 0%,var(--fd-blue) 100%);
+  color:#fff;
+  border:1px solid var(--fd-blue);
+  padding:8px;
   text-align:center;
   font-size:18px;
 }
 
 /* Celdas */
 .reportTable td{
-  color:var(--brand-gray);
-  border:1px solid var(--brand-blue);
-  padding:6px 8px;
+  border:1px solid var(--fd-blue);
+  padding:8px;
   font-size:20px;
+  color:var(--fd-navy);
   white-space:pre-line;
   word-wrap:break-word;
 }
 
-/* Filas alternas para legibilidad */
+/* Filas alternas */
 .reportTable tr:nth-child(even) td{
-  background-color:var(--brand-light);
+  background:var(--fd-light);
 }
 
 /* Alineaciones rápidas */
-.left{text-align:left;}
-.right{text-align:right!important;}
-.indent{padding-left:15px;}
+.left{ text-align:left; }
+.right{ text-align:right!important; }
+.indent{ padding-left:15px; }
 
 /* Sub-totales y totales */
 .subtotal{
   font-style:italic;
   font-weight:bold;
-  background-color:var(--brand-cyan);
+  background:var(--fd-purple);
   color:#fff;
 }
 .total{
-  border-top:3px solid var(--brand-blue)!important;
+  border-top:3px solid var(--fd-blue)!important;
   font-weight:bold!important;
 }
 .total.transposed{
   border-top:0!important;
-  background-color:var(--brand-cyan);
+  background:var(--fd-purple);
   color:#fff;
 }
 
-/* 🔍  Opcional: oculta columnas (ejemplo original)  */
+/* Columnas ocultas (se mantienen de tu versión) */
 .reportTable th:nth-child(3),
 .reportTable td:nth-child(3),
 .reportTable th:nth-child(7),
