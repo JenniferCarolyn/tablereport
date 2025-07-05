@@ -1,11 +1,11 @@
 /* =====================================================
-   Paleta FluentData  (ajusta si Brand lo actualiza)
+   Paleta FluentData  (ajusta si cambian)
    ===================================================== */
 :root{
-  --fd-blue:   #006CFF;  /* Azul principal (botones)  */
-  --fd-purple: #9E38FF;  /* Morado del gradiente logo */
-  --fd-navy:   #1B1F3C;  /* Texto/fondo oscuro        */
-  --fd-light:  #F4F6FF;  /* Fila alterna / fondo leve  */
+  --fd-blue:   #006CFF;  /* Azul principal */
+  --fd-purple: #9E38FF;  /* Morado gradiente */
+  --fd-navy:   #1B1F3C;  /* Texto/fondo oscuro */
+  --fd-light:  #F4F6FF;  /* Fila alterna */
 }
 
 /* =====================================================
@@ -28,14 +28,14 @@
 #tooltip p{margin:0;line-height:1.2em;}
 
 /* =====================================================
-   Tabla genérica: se adapta a 2 o n columnas
+   Tabla genérica
    ===================================================== */
 .reportTable{
   font-family:'Public Sans',sans-serif;
   font-size:22px;
   width:100%;
   border-collapse:collapse;
-  table-layout:auto;           /* ⇢ deja que el navegador reparta anchos */
+  table-layout:auto;        /* se adapta al Nº de columnas */
 }
 
 /* Encabezados */
@@ -55,43 +55,42 @@
   font-size:18px;
   color:var(--fd-navy);
   white-space:pre-line;
-  word-wrap:break-word;  /* corta URLs largas */
+  word-wrap:break-word;
 }
 
 /* Filas alternas para legibilidad */
 .reportTable tr:nth-child(even) td{background:var(--fd-light);}
 
-/* ---------- Ajuste de anchos máximos ---------- */
-/* Primera columna: nunca mayor a 200 px          */
+/* ---------- Ajustes de ancho ---------- */
+/* Primera columna: evita que se expanda demasiado             */
 .reportTable th:first-child,
 .reportTable td:first-child{
   max-width:200px;
   width:200px;
   white-space:normal;
 }
-/* Resto de columnas: límite general de 280 px    */
+/* Resto de columnas: límite general                           */
 .reportTable th, .reportTable td{
   max-width:280px;
 }
 
-/* Responsivo: pantallas ≤ 768 px */
+/* Responsivo (pantallas ≤ 768 px) */
 @media(max-width:768px){
   .reportTable th, .reportTable td{max-width:140px;font-size:16px;}
 }
 
-/* ---------- Jerarquía colapsable (details) ---------- */
+/* ---------- Jerarquía colapsable (<details>) ---------- */
 .reportTable details{margin:0;}
 .reportTable details summary{
   cursor:pointer;
   list-style:none;
   position:relative;
-  padding-left:18px;  /* espacio para el icono */
+  padding-left:18px;
 }
 .reportTable details summary::before{
   content:"▶";
   position:absolute;
-  left:0;
-  top:2px;
+  left:0; top:2px;
   color:var(--fd-blue);
   font-size:14px;
 }
@@ -116,11 +115,4 @@
   border-top:0!important;
   background:var(--fd-purple);
   color:#fff;
-}
-
-/* ---------- Columnas que quieras ocultar ---------- */
-/* Ejemplo; agrega o quita índices según tu caso */
-.reportTable th:nth-child(3),  .reportTable td:nth-child(3),
-.reportTable th:nth-child(7),  .reportTable td:nth-child(7){
-  display:none;
 }
