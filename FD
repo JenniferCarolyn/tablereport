@@ -1,5 +1,5 @@
 /* =====================================================
-   Variables de marca (ajústalas si cambian)
+   Variables de marca FluentData  ─ ajusta si cambian
    ===================================================== */
 :root{
   --fd-blue:   #006CFF;  /* Azul principal */
@@ -28,7 +28,7 @@
 #tooltip p{margin:0;line-height:1.2em;}
 
 /* =====================================================
-   Tabla
+   Tabla principal
    ===================================================== */
 .reportTable{
   font-family:'Public Sans',sans-serif;
@@ -39,7 +39,6 @@
 
 /* Encabezados */
 .reportTable th{
-  /* Gradiente corporativo */
   background:linear-gradient(90deg,var(--fd-purple) 0%,var(--fd-blue) 100%);
   color:#fff;
   border:1px solid var(--fd-blue);
@@ -85,16 +84,33 @@
   color:#fff;
 }
 
-/* Columnas ocultas (se mantienen de tu versión) */
-.reportTable th:nth-child(3),
-.reportTable td:nth-child(3),
-.reportTable th:nth-child(7),
-.reportTable td:nth-child(7),
-.reportTable th:nth-child(11),
-.reportTable td:nth-child(11),
-.reportTable th:nth-child(15),
-.reportTable td:nth-child(15),
-.reportTable th:nth-child(19),
-.reportTable td:nth-child(19){
+/* ----------------------------------------------------
+   Ajustes de las dos primeras columnas
+   ---------------------------------------------------- */
+
+/* 1️⃣  Limita la anchura de la primera columna */
+.reportTable th:first-child,
+.reportTable td:first-child{
+  max-width:180px;      /* modifica si necesitas otro ancho */
+  width:180px;
+  white-space:normal;   /* permite saltos de línea */
+}
+
+/* 2️⃣  Añade espacio interno a la segunda columna */
+.reportTable th:nth-child(2),
+.reportTable td:nth-child(2){
+  padding-left:12px;
+  padding-right:12px;
+}
+
+/* ----------------------------------------------------
+   Columnas ocultas (mantén o edita según necesites)
+   ---------------------------------------------------- */
+.reportTable th:nth-child(3),  .reportTable td:nth-child(3),
+.reportTable th:nth-child(7),  .reportTable td:nth-child(7),
+.reportTable th:nth-child(11), .reportTable td:nth-child(11),
+.reportTable th:nth-child(15), .reportTable td:nth-child(15),
+.reportTable th:nth-child(19), .reportTable td:nth-child(19){
   display:none;
 }
+
