@@ -1,0 +1,93 @@
+#tooltip {
+    position: absolute;
+    padding: 6px 10px;
+    background-color: #FFFFFF;
+    border: 1px solid #471CA8; /* American Violet */
+    border-radius: 6px;
+    box-shadow: 2px 2px 8px rgba(53, 51, 51, 0.3); /* Jet Solid sombra */
+    pointer-events: none;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 16px;
+    color: #353333; /* Jet Solid */
+    z-index: 2;
+}
+
+#tooltip.hidden {
+    display: none;
+}
+
+#tooltip p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+/* ===== TABLA GENERAL ===== */
+.reportTable {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 16px;
+    border: 1px solid #E8E8E8; /* Platinum Solid */
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* ===== ENCABEZADO ===== */
+.reportTable th {
+    background-color: #E8E8E8; /* Platinum Solid */
+    color: #471CA8; /* American Violet */
+    border: 1px solid #E8E8E8;
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+/* ===== CELDAS ===== */
+.reportTable td {
+    color: #353333; /* Jet Solid */
+    padding: 6px;
+    border: 1px solid #E8E8E8;
+    font-size: 14px;
+    background-color: #FFFFFF;
+}
+
+/* ===== FILAS ALTERNAS ===== */
+.reportTable tr:nth-child(even) td {
+    background-color: #F9F9F9; /* gris muy claro */
+}
+
+/* ===== SUBTOTAL ===== */
+.subtotal {
+    font-style: italic;
+    font-weight: bold;
+    background-color: #F0F4FF; /* azul suave */
+    color: #4161F7; /* Ultramarine Blue */
+}
+
+/* ===== TOTAL ===== */
+.total {
+    border-top: 2px solid #471CA8 !important;
+    font-weight: bold !important;
+    background-color: #F2F2F2;
+    color: #471CA8; /* American Violet */
+}
+
+.total.transposed {
+    border-top: none !important;
+    background: #E8E8E8;
+    color: #471CA8;
+}
+
+/* ===== ALINEACIONES ===== */
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right !important;
+}
+
+.indent {
+    padding-left: 15px;
+}
