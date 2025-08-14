@@ -1,93 +1,110 @@
-#tooltip {
-    position: absolute;
-    padding: 6px 10px;
-    background-color: #FFFFFF;
-    border: 1px solid #471CA8; /* American Violet */
-    border-radius: 6px;
-    box-shadow: 2px 2px 8px rgba(53, 51, 51, 0.3); /* Jet Solid sombra */
-    pointer-events: none;
-    font-family: 'Public Sans', sans-serif;
-    font-size: 16px;
-    color: #353333; /* Jet Solid */
-    z-index: 2;
+/* ========= Variables neutrales + tema ========= */
+:root{
+  --bg: #FFFFFF;
+  --row-alt: #F9F9F9;
+  --text: #353333;           /* Jet Solid */
+  --text-2: #555555;
+  --border: #E8E8E8;         /* Platinum Solid */
+  --shadow: rgba(53,51,51,0.3);
+  /* Valores por defecto (si no hay tema) */
+  --accent: #471CA8;         /* ETA violet */
+  --accent-strong: #3D1792;
+  --accent-soft: #F3EEFF;    /* fondo suave acorde al accent */
 }
 
-#tooltip.hidden {
-    display: none;
+/* Tema Etafashion */
+.theme-eta{
+  --accent: #471CA8;         /* American Violet */
+  --accent-strong: #3D1792;
+  --accent-soft: #F3EEFF;
 }
 
-#tooltip p {
-    margin: 0;
-    font-size: 16px;
-    line-height: 1.4;
+/* Tema RM */
+.theme-rm{
+  --accent: #ED1C24;         /* Rojo RM */
+  --accent-strong: #C41018;
+  --accent-soft: #FFE9EC;    /* rosado muy claro para fondos suaves */
 }
 
-/* ===== TABLA GENERAL ===== */
-.reportTable {
-    font-family: 'Public Sans', sans-serif;
-    font-size: 16px;
-    border: 1px solid #E8E8E8; /* Platinum Solid */
-    border-collapse: collapse;
-    width: 100%;
+/* ========= Tooltip ========= */
+#tooltip{
+  position:absolute;
+  padding:6px 10px;
+  background-color: var(--bg);
+  border:1px solid var(--accent);
+  border-radius:6px;
+  box-shadow:2px 2px 8px var(--shadow);
+  pointer-events:none;
+  font-family:'Public Sans',sans-serif;
+  font-size:16px;
+  color:var(--text);
+  z-index:2;
+}
+#tooltip.hidden{ display:none; }
+#tooltip p{ margin:0; font-size:16px; line-height:1.4; }
+
+/* ========= Tabla general ========= */
+.reportTable{
+  font-family:'Public Sans',sans-serif;
+  font-size:16px;
+  border:1px solid var(--border);
+  border-collapse:collapse;
+  width:100%;
+  background-color: var(--bg);
 }
 
-/* ===== ENCABEZADO ===== */
-.reportTable th {
-    background-color: #E8E8E8; /* Platinum Solid */
-    color: #471CA8; /* American Violet */
-    border: 1px solid #E8E8E8;
-    padding: 8px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 14px;
-    text-transform: uppercase;
+/* ========= Encabezado ========= */
+.reportTable th{
+  background-color: #E8E8E8;        /* neutro */
+  color: var(--accent);              /* cambia según tema */
+  border:1px solid var(--border);
+  padding:8px;
+  text-align:center;
+  font-weight:bold;
+  font-size:14px;
+  text-transform:uppercase;
 }
 
-/* ===== CELDAS ===== */
-.reportTable td {
-    color: #353333; /* Jet Solid */
-    padding: 6px;
-    border: 1px solid #E8E8E8;
-    font-size: 14px;
-    background-color: #FFFFFF;
+/* ========= Celdas ========= */
+.reportTable td{
+  color:var(--text);
+  padding:6px;
+  border:1px solid var(--border);
+  font-size:14px;
+  background-color: var(--bg);
 }
 
-/* ===== FILAS ALTERNAS ===== */
-.reportTable tr:nth-child(even) td {
-    background-color: #F9F9F9; /* gris muy claro */
+/* Filas alternas */
+.reportTable tr:nth-child(even) td{
+  background-color: var(--row-alt);
 }
 
-/* ===== SUBTOTAL ===== */
-.subtotal {
-    font-style: italic;
-    font-weight: bold;
-    background-color: #F0F4FF; /* azul suave */
-    color: #4161F7; /* Ultramarine Blue */
+/* ========= Subtotal (banda suave del accent) ========= */
+.subtotal{
+  font-style:italic;
+  font-weight:bold;
+  background-color: var(--accent-soft);
+  color: var(--accent-strong);
 }
 
-/* ===== TOTAL ===== */
-.total {
-    border-top: 2px solid #471CA8 !important;
-    font-weight: bold !important;
-    background-color: #F2F2F2;
-    color: #471CA8; /* American Violet */
+/* ========= Total ========= */
+.total{
+  border-top:2px solid var(--accent) !important;
+  font-weight:bold !important;
+  background-color:#F2F2F2;
+  color: var(--accent);
+}
+.total.transposed{
+  border-top:none !important;
+  background:#E8E8E8;
+  color: var(--accent);
 }
 
-.total.transposed {
-    border-top: none !important;
-    background: #E8E8E8;
-    color: #471CA8;
-}
+/* ========= Alineaciones ========= */
+.left{ text-align:left; }
+.right{ text-align:right !important; }
+.indent{ padding-left:15px; }
 
-/* ===== ALINEACIONES ===== */
-.left {
-    text-align: left;
-}
-
-.right {
-    text-align: right !important;
-}
-
-.indent {
-    padding-left: 15px;
-}
+/* (Opcional) Estado positivo/negativo coherente para ambos temas */
+.kpi-pos{ color:#27AE60; }
+.kpi-neg{ color:#E74C3C; }
