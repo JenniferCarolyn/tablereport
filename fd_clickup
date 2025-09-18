@@ -1,116 +1,65 @@
-/* =====================================================
-   Paleta (más negra / oscura)
-   ===================================================== */
+/* ===== Paleta FluentData (manual) ===== */
 :root{
-  --fd-blue:   #006CFF;   /* Azul principal */
-  --fd-ink:    #0B1020;   /* Negro-azulado para fondos/gradientes */
-  --fd-navy:   #1B1F3C;   /* Texto oscuro secundario */
-  --fd-light:  #EEF2F7;   /* Fila alterna (ligera) */
+  --fd-blue:   #217BFE;   /* primario */
+  --fd-purple: #9268C2;   /* secundario */
+  --fd-pink:   #F04D5D;   /* acento */
+  --fd-ink:    #131313;   /* negro de marca */
+  --fd-white:  #FDFDFD;   /* blanco de marca */
 
-  --fd-border: #000000;         /* Bordes en negro */
-  --fd-shadow: rgba(0,0,0,.25); /* Sombras en negro */
+  /* derivados prácticos */
+  --fd-border: #131313;           /* bordes oscuros */
+  --fd-shadow: rgba(19,19,19,.25); /* sombras coherentes */
+  --fd-row-alt:#F4F6FF;           /* alterna suave (puedes usar #FDFDFD) */
 }
 
-/* =====================================================
-   Tooltip
-   ===================================================== */
+/* ===== Tipografía (manual) ===== */
+.reportTable, #tooltip { font-family: 'Poppins', system-ui, -apple-system, sans-serif; }
+
+/* ===== Tooltip ===== */
 #tooltip{
-  position:absolute;
-  padding:6px 10px;
-  background:#fff;
-  border:1px solid var(--fd-border);
-  border-radius:4px;
+  position:absolute; padding:6px 10px; background:#fff;
+  border:1px solid var(--fd-border); border-radius:4px;
   box-shadow:4px 4px 10px var(--fd-shadow);
-  pointer-events:none;
-  font-family:'Public Sans',sans-serif;
-  font-size:18px;
-  color:var(--fd-navy);
-  z-index:2;
+  font-size:18px; color:var(--fd-ink); z-index:2; pointer-events:none;
 }
 #tooltip.hidden{display:none;}
-#tooltip p{margin:0;line-height:1.2em;}
+#tooltip p{margin:0; line-height:1.2em;}
 
-/* =====================================================
-   Tabla genérica
-   ===================================================== */
+/* ===== Tabla ===== */
 .reportTable{
-  font-family:'Public Sans',sans-serif;
-  font-size:22px;
-  width:100%;
-  border-collapse:collapse;
-  table-layout:auto;
+  font-size:22px; width:100%; border-collapse:collapse; table-layout:auto;
 }
 
-/* Encabezados – gradiente oscuro (negro→azul), bordes negros */
+/* Encabezados: gradiente oscuro → azul (texto blanco por guía de marca) */
 .reportTable th{
   background:linear-gradient(90deg, var(--fd-ink) 0%, var(--fd-blue) 100%);
-  color:#fff;
-  border:1px solid var(--fd-border);
-  padding:8px;
-  text-align:center;
-  font-size:18px;
+  color:#fff; border:1px solid var(--fd-border);
+  padding:8px; text-align:center; font-size:18px;
 }
 
-/* Celdas – bordes negros */
+/* Celdas (texto negro de marca sobre fondo claro) */
 .reportTable td{
   border:1px solid var(--fd-border);
-  padding:8px 10px;
-  font-size:18px;
-  color:#111318; /* texto muy oscuro */
-  white-space:pre-line;
-  word-wrap:break-word;
+  padding:8px 10px; font-size:18px; color:var(--fd-ink);
+  white-space:pre-line; word-wrap:break-word;
 }
 
-/* Filas alternas (suave gris azulado) */
-.reportTable tr:nth-child(even) td{background:var(--fd-light);}
+/* Filas alternas */
+.reportTable tr:nth-child(even) td{background:var(--fd-white);} /* o var(--fd-row-alt) */
 
-/* ---------- Ajustes de ancho ---------- */
-.reportTable th:first-child,
-.reportTable td:first-child{
-  max-width:200px;
-  width:200px;
-  white-space:normal;
-}
+/* Anchos */
+.reportTable th:first-child, .reportTable td:first-child{max-width:200px;width:200px;white-space:normal;}
 .reportTable th, .reportTable td{max-width:280px;}
+@media(max-width:768px){ .reportTable th, .reportTable td{max-width:140px;font-size:16px;} }
 
-@media(max-width:768px){
-  .reportTable th, .reportTable td{max-width:140px;font-size:16px;}
-}
-
-/* ---------- Jerarquía colapsable (<details>) ---------- */
+/* Jerarquía (<details>) */
 .reportTable details{margin:0;}
-.reportTable details summary{
-  cursor:pointer;
-  list-style:none;
-  position:relative;
-  padding-left:18px;
-}
-.reportTable details summary::before{
-  content:"▶";
-  position:absolute;
-  left:0; top:2px;
-  color:var(--fd-blue); /* indicador en azul marca */
-  font-size:14px;
-}
+.reportTable details summary{cursor:pointer; list-style:none; position:relative; padding-left:18px;}
+.reportTable details summary::before{content:"▶"; position:absolute; left:0; top:2px; color:var(--fd-blue); font-size:14px;}
 .reportTable details[open] summary::before{content:"▼";}
-.reportTable details[open] > summary{
-  font-weight:bold;
-  color:#0A0A0A; /* texto más negro al expandir */
-}
+.reportTable details[open] > summary{font-weight:bold; color:var(--fd-ink);}
 
-/* ---------- Sub-totales y Totales ---------- */
-.subtotal{
-  font-style:italic;
-  font-weight:bold;
-  background:var(--fd-ink); /* fondo oscuro */
-  color:#fff;
-}
-.total{
-  border-top:3px solid var(--fd-border) !important; /* borde superior negro */
-  font-weight:bold !important;
-}
-.total.transposed{
-  border-top:0 !important;
-  background:linear-gradient(90deg, var(--fd-ink) 0%, var(--fd-blue) 100%);
-  color:#fff;
-}
+/* Sub-totales y Totales */
+.subtotal{font-style:italic; font-weight:bold; background:var(--fd-blue); color:#fff;}
+.total{border-top:3px solid var(--fd-ink)!important; font-weight:bold!important;}
+.total.transposed{border-top:0!important; background:linear-gradient(90deg, var(--fd-ink) 0%, var(--fd-blue) 100%); color:#fff;}
