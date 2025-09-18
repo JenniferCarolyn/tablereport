@@ -1,0 +1,123 @@
+/* =====================================================
+   Paleta FluentData (principal + derivados de color)
+   ===================================================== */
+:root{
+  --fd-blue:   #006CFF;   /* Azul principal */
+  --fd-purple: #9E38FF;   /* Morado gradiente */
+  --fd-navy:   #1B1F3C;   /* Texto / bordes oscuros de marca */
+  --fd-light:  #F4F6FF;   /* Fila alterna */
+
+  /* Derivados (para evitar negro puro) */
+  --fd-border:           #2a3157; /* fallback */
+  --fd-border-strong:    #1f2646; /* fallback */
+  --fd-shadow-rgba:      rgba(27,31,60,.25);
+
+  /* Si el navegador soporta color-mix, usamos mezclas exactas */
+  /* Nota: declarar después para sobreescribir fallbacks */
+  --fd-border:        color-mix(in oklab, var(--fd-navy) 35%, white);
+  --fd-border-strong: color-mix(in oklab, var(--fd-navy) 75%, black);
+}
+
+/* =====================================================
+   Tooltip
+   ===================================================== */
+#tooltip{
+  position:absolute;
+  padding:6px 10px;
+  background:#fff;
+  border:1px solid var(--fd-border);
+  border-radius:4px;
+  box-shadow:4px 4px 10px var(--fd-shadow-rgba);
+  pointer-events:none;
+  font-family:'Public Sans',sans-serif;
+  font-size:18px;
+  color:var(--fd-navy);
+  z-index:2;
+}
+#tooltip.hidden{display:none;}
+#tooltip p{margin:0;line-height:1.2em;}
+
+/* =====================================================
+   Tabla genérica
+   ===================================================== */
+.reportTable{
+  font-family:'Public Sans',sans-serif;
+  font-size:22px;
+  width:100%;
+  border-collapse:collapse;
+  table-layout:auto;
+}
+
+/* Encabezados – gradiente corporativo, bordes en navy */
+.reportTable th{
+  background:linear-gradient(90deg,var(--fd-purple) 0%,var(--fd-blue) 100%);
+  color:#fff;
+  border:1px solid var(--fd-border-strong); /* líneas internas navy fuerte */
+  padding:8px;
+  text-align:center;
+  font-size:18px;
+}
+
+/* Celdas – bordes en navy */
+.reportTable td{
+  border:1px solid var(--fd-border-strong); /* líneas internas navy fuerte */
+  padding:8px 10px;
+  font-size:18px;
+  color:var(--fd-navy);
+  white-space:pre-line;
+  word-wrap:break-word;
+}
+
+/* Filas alternas */
+.reportTable tr:nth-child(even) td{background:var(--fd-light);}
+
+/* ---------- Ajustes de ancho ---------- */
+.reportTable th:first-child,
+.reportTable td:first-child{
+  max-width:200px;
+  width:200px;
+  white-space:normal;
+}
+.reportTable th, .reportTable td{max-width:280px;}
+
+@media(max-width:768px){
+  .reportTable th, .reportTable td{max-width:140px;font-size:16px;}
+}
+
+/* ---------- Jerarquía colapsable (<details>) ---------- */
+.reportTable details{margin:0;}
+.reportTable details summary{
+  cursor:pointer;
+  list-style:none;
+  position:relative;
+  padding-left:18px;
+}
+.reportTable details summary::before{
+  content:"▶";
+  position:absolute;
+  left:0; top:2px;
+  color:var(--fd-blue);
+  font-size:14px;
+}
+.reportTable details[open] summary::before{content:"▼";}
+.reportTable details[open] > summary{
+  font-weight:bold;
+  color:var(--fd-purple);
+}
+
+/* ---------- Sub-totales y Totales ---------- */
+.subtotal{
+  font-style:italic;
+  font-weight:bold;
+  background:var(--fd-purple);
+  color:#fff;
+}
+.total{
+  border-top:3px solid var(--fd-blue) !important; /* resalta con azul marca */
+  font-weight:bold !important;
+}
+.total.transposed{
+  border-top:0 !important;
+  background:linear-gradient(90deg,var(--fd-purple) 0%,var(--fd-blue) 100%);
+  color:#fff;
+}
