@@ -1,21 +1,14 @@
 /* =====================================================
-   Paleta FluentData (principal + derivados de color)
+   Paleta (más negra / oscura)
    ===================================================== */
 :root{
   --fd-blue:   #006CFF;   /* Azul principal */
-  --fd-purple: #9E38FF;   /* Morado gradiente */
-  --fd-navy:   #1B1F3C;   /* Texto / bordes oscuros de marca */
-  --fd-light:  #F4F6FF;   /* Fila alterna */
+  --fd-ink:    #0B1020;   /* Negro-azulado para fondos/gradientes */
+  --fd-navy:   #1B1F3C;   /* Texto oscuro secundario */
+  --fd-light:  #EEF2F7;   /* Fila alterna (ligera) */
 
-  /* Derivados (para evitar negro puro) */
-  --fd-border:           #2a3157; /* fallback */
-  --fd-border-strong:    #1f2646; /* fallback */
-  --fd-shadow-rgba:      rgba(27,31,60,.25);
-
-  /* Si el navegador soporta color-mix, usamos mezclas exactas */
-  /* Nota: declarar después para sobreescribir fallbacks */
-  --fd-border:        color-mix(in oklab, var(--fd-navy) 35%, white);
-  --fd-border-strong: color-mix(in oklab, var(--fd-navy) 75%, black);
+  --fd-border: #000000;         /* Bordes en negro */
+  --fd-shadow: rgba(0,0,0,.25); /* Sombras en negro */
 }
 
 /* =====================================================
@@ -27,7 +20,7 @@
   background:#fff;
   border:1px solid var(--fd-border);
   border-radius:4px;
-  box-shadow:4px 4px 10px var(--fd-shadow-rgba);
+  box-shadow:4px 4px 10px var(--fd-shadow);
   pointer-events:none;
   font-family:'Public Sans',sans-serif;
   font-size:18px;
@@ -48,27 +41,27 @@
   table-layout:auto;
 }
 
-/* Encabezados – gradiente corporativo, bordes en navy */
+/* Encabezados – gradiente oscuro (negro→azul), bordes negros */
 .reportTable th{
-  background:linear-gradient(90deg,var(--fd-purple) 0%,var(--fd-blue) 100%);
+  background:linear-gradient(90deg, var(--fd-ink) 0%, var(--fd-blue) 100%);
   color:#fff;
-  border:1px solid var(--fd-border-strong); /* líneas internas navy fuerte */
+  border:1px solid var(--fd-border);
   padding:8px;
   text-align:center;
   font-size:18px;
 }
 
-/* Celdas – bordes en navy */
+/* Celdas – bordes negros */
 .reportTable td{
-  border:1px solid var(--fd-border-strong); /* líneas internas navy fuerte */
+  border:1px solid var(--fd-border);
   padding:8px 10px;
   font-size:18px;
-  color:var(--fd-navy);
+  color:#111318; /* texto muy oscuro */
   white-space:pre-line;
   word-wrap:break-word;
 }
 
-/* Filas alternas */
+/* Filas alternas (suave gris azulado) */
 .reportTable tr:nth-child(even) td{background:var(--fd-light);}
 
 /* ---------- Ajustes de ancho ---------- */
@@ -96,28 +89,28 @@
   content:"▶";
   position:absolute;
   left:0; top:2px;
-  color:var(--fd-blue);
+  color:var(--fd-blue); /* indicador en azul marca */
   font-size:14px;
 }
 .reportTable details[open] summary::before{content:"▼";}
 .reportTable details[open] > summary{
   font-weight:bold;
-  color:var(--fd-purple);
+  color:#0A0A0A; /* texto más negro al expandir */
 }
 
 /* ---------- Sub-totales y Totales ---------- */
 .subtotal{
   font-style:italic;
   font-weight:bold;
-  background:var(--fd-purple);
+  background:var(--fd-ink); /* fondo oscuro */
   color:#fff;
 }
 .total{
-  border-top:3px solid var(--fd-blue) !important; /* resalta con azul marca */
+  border-top:3px solid var(--fd-border) !important; /* borde superior negro */
   font-weight:bold !important;
 }
 .total.transposed{
   border-top:0 !important;
-  background:linear-gradient(90deg,var(--fd-purple) 0%,var(--fd-blue) 100%);
+  background:linear-gradient(90deg, var(--fd-ink) 0%, var(--fd-blue) 100%);
   color:#fff;
 }
